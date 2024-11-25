@@ -1,17 +1,17 @@
 import {useState} from "react";
-import axios from "axios";
-import NewsList from "./components/NewsList";
+import axios from 'axios';
 
-
-const AppNews = () => {
-
+const AppTodos = () => {
     const [data, setData] = useState(null)
     const onClick = async () => {
-
+        // axios.get('https://jsonplaceholder.typicode.com/todos/1')
+        //     .then(response => {
+        //         // response는 json 형식의 데이터
+        //         setData(response.data);
+        //     })
         try {
             const response
-                = await axios.get(
-                    'https://newsapi.org/v2/everything?q=Apple&from=2024-11-24&sortBy=popularity&apiKey=3344dfac5419471394ba8ac2501346f1',);
+                = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
             setData(response.data);
         } catch (e) {
             console.error(e)
@@ -32,6 +32,7 @@ const AppNews = () => {
             }
         </div>
     )
+
 }
 
-export default AppNews;
+export default AppTodos;
